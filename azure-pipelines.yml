@@ -2,7 +2,7 @@ trigger:
 - master
 
 jobs:
-- job: forWindows
+- job: for_Windows
   pool:
     vmImage: 'windows-latest'
   variables:
@@ -62,7 +62,7 @@ jobs:
       isPreRelease: true # Optional
       #addChangeLog: true # Optional
 
-- job: macOS
+- job: for_macOS
   pool:
     vmImage: 'macOS-10.14'
   variables:
@@ -83,7 +83,7 @@ jobs:
   - task: CopyFiles@2
     inputs:
       #sourceFolder: # Optional
-      contents: '**/QMK Toolbox.app.zip'
+      contents: '$(agent.buildDirectory)/**/QMK Toolbox.app.zip'
       targetFolder: '$(Build.ArtifactStagingDirectory)'
       #cleanTargetFolder: false # Optional
       overWrite: true # Optional
@@ -92,7 +92,7 @@ jobs:
   - task: CopyFiles@2
     inputs:
       #sourceFolder: # Optional
-      contents: '**/QMK Toolbox.pkg'
+      contents: '$(agent.buildDirectory)/**/QMK Toolbox.pkg'
       targetFolder: '$(Build.ArtifactStagingDirectory)'
       #cleanTargetFolder: false # Optional
       overWrite: true # Optional
@@ -103,6 +103,10 @@ jobs:
       pathtoPublish: '$(Build.ArtifactStagingDirectory)'
       artifactName: qmk_toolbox_macos
 
+- job: release
+  dependsOn: ['for_Windows', 'for_macOS']
+
+  steps:
   # GitHub Release
   # Create, edit, or delete a GitHub release.
   - task: GitHubRelease@0
