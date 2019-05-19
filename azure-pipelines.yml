@@ -77,19 +77,18 @@ jobs:
   dependsOn: ['for_Windows', 'for_macOS']
 
   steps:
-  # Download Pipeline Artifact
-  - task: DownloadPipelineArtifact@1
+  - task: DownloadBuildArtifacts@0
     inputs:
-      buildType: 'current' # Options: current, specific
-      #project: # Required when buildType == Specific
-      #pipeline: # Required when buildType == Specific
-      #specificBuildWithTriggering: false # Optional
-      #buildVersionToDownload: 'latest' # Required when buildType == Specific. Options: latest, latestFromBranch, specific
-      #branchName: 'refs/heads/master' # Required when buildType == Specific && BuildVersionToDownload == LatestFromBranch
-      #buildId: # Required when buildType == Specific && BuildVersionToDownload == Specific
-      #tags: # Optional
-      #artifactName: # Optional
-      #itemPattern: '**' # Optional
+      buildType: 'current'
+      downloadType: 'single'
+      artifactName: 'qmk_toolbox_windows'
+      downloadPath: '$(Build.ArtifactStagingDirectory)'
+
+  - task: DownloadBuildArtifacts@0
+    inputs:
+      buildType: 'current'
+      downloadType: 'single'
+      artifactName: 'qmk_toolbox_macos'
       downloadPath: '$(Build.ArtifactStagingDirectory)'
 
   # GitHub Release
