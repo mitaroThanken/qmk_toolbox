@@ -40,3 +40,8 @@ steps:
     #cleanTargetFolder: false # Optional
     overWrite: true # Optional
     flattenFolders: true # Optional
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: qmk_toolbox_windows
