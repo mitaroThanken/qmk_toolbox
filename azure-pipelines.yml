@@ -75,6 +75,7 @@ jobs:
       actions: 'clean build'
       sdk: '$(sdk)'
       configuration: '$(configuration)'
+      xcWorkspacePath: 'osx/QMK Toolbox.xcodeproj'
       xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
       exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
       packageApp: false
