@@ -63,7 +63,7 @@ jobs:
   - task: CopyFiles@2
     inputs:
       #sourceFolder: # Optional
-      contents: '$(agent.buildDirectory)/**/QMK Toolbox.app.zip'
+      contents: '**/QMK Toolbox.app.zip'
       targetFolder: '$(Build.ArtifactStagingDirectory)'
       #cleanTargetFolder: false # Optional
       overWrite: true # Optional
@@ -72,7 +72,7 @@ jobs:
   - task: CopyFiles@2
     inputs:
       #sourceFolder: # Optional
-      contents: '$(agent.buildDirectory)/**/QMK Toolbox.pkg'
+      contents: '**/QMK Toolbox.pkg'
       targetFolder: '$(Build.ArtifactStagingDirectory)'
       #cleanTargetFolder: false # Optional
       overWrite: true # Optional
