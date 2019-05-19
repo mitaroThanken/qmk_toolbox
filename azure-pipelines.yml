@@ -58,7 +58,6 @@ jobs:
       xcWorkspacePath: 'osx/QMK Toolbox.xcodeproj'
       xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
       packageApp: false
-      useXcpretty: false # Makes it easier to diagnose build failures
 
   - task: CopyFiles@2
     inputs:
