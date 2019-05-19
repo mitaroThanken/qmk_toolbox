@@ -62,6 +62,7 @@ jobs:
       exportPath: 'output/$(sdk)/$(configuration)'
       archivePath: 'output/$(sdk)/$(configuration)'
       packageApp: false
+      useXcpretty: false # Makes it easier to diagnose build failures
 
   - task: CopyFiles@2
     inputs:
