@@ -57,7 +57,7 @@ jobs:
       configuration: '$(configuration)'
       xcWorkspacePath: 'osx/QMK Toolbox.xcodeproj'
       xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
-      exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
+      exportPath: 'output/$(sdk)/$(configuration)'
       packageApp: false
 
   - task: CopyFiles@2
