@@ -63,7 +63,7 @@ jobs:
   - task: CopyFiles@2
     inputs:
       #sourceFolder: # Optional
-      contents: 'osx/build/Release/*'
+      contents: 'osx/build/Release/**'
       targetFolder: '$(Build.ArtifactStagingDirectory)'
       #cleanTargetFolder: false # Optional
       overWrite: true # Optional
