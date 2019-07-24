@@ -156,6 +156,9 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="BetterComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Flashing.cs" />
     <Compile Include="Helpers\EmbeddedResourceHelper.cs" />
     <Compile Include="Info.cs" />
@@ -185,8 +188,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="avrdude.conf" />
-    <EmbeddedResource Include="atmega32u4_eeprom_reset.hex" />
+    <EmbeddedResource Include="..\..\common\avrdude.conf" />
+    <EmbeddedResource Include="..\..\common\reset.eep" />
     <EmbeddedResource Include="dfu-prog-usb-1.2.2.zip" />
     <EmbeddedResource Include="applet-flash-samd51j18a.bin" />
     <None Include="packages.config" />
@@ -213,7 +216,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="qmk_driver_installer.exe" />
-    <EmbeddedResource Include="mcu-list.txt" />
+    <EmbeddedResource Include="..\..\common\mcu-list.txt" />
     <EmbeddedResource Include="libusb0.dll" />
     <EmbeddedResource Include="drivers.txt" />
     <EmbeddedResource Include="bootloadHID.exe" />

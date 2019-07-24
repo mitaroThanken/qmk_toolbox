@@ -124,7 +124,7 @@
 - (void)setFilePath:(NSURL *)path {
     NSString * filename = @"";
     if ([path.scheme isEqualToString:@"file"])
-        filename = [[NSString stringWithString:path.absoluteString] stringByReplacingOccurrencesOfString:@"file://" withString:@""];
+        filename = [[path.absoluteString stringByRemovingPercentEncoding] stringByReplacingOccurrencesOfString:@"file://" withString:@""];
     if ([path.scheme isEqualToString:@"qmk"]) {
         NSURL * url;
         if ([path.absoluteString containsString:@"qmk://"])
@@ -264,6 +264,10 @@
 - (IBAction)loadKeymapClick:(id)sender {
     NSString * keyboard = [[_keyboardBox objectValue] stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
     [self setFilePath:[NSURL URLWithString:[NSString stringWithFormat:@"qmk:http://qmk.fm/compiled/%@_default.hex", keyboard]]];
+}
+
+- (IBAction)clearButtonClick:(id)sender {
+    [[self textView] setString: @""];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
